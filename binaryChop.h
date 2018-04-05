@@ -12,23 +12,18 @@ int binaryChop(int target, int num[], int length) {
 	int begin=0;
 	int end=length-1;
 	int middle=(begin+end)>>1;
-
-	while(begin!=end&&num[middle]!=target) {
+	
+	while ((begin!=end)&&(num[middle]!=target)) {
 		if (target>num[middle]) {
 			begin=middle+1;
-			middle=(begin+end)>>1;
 		}
 		else {
 			end=middle-1;
-			middle=(begin+end)>>1;
 		}
+		middle=(begin+end)>>1;
 	}
 
-	if (num[middle]==target) {
-		return middle;
-	}
-	else {
-		return -1;
-	}
+	if (num[middle]==target) return middle;
+	else return -1;
 }
 #endif
